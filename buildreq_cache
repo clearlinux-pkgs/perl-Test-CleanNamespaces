@@ -1,0 +1,10 @@
+0.23
+perl(File::pushd)
+perl(Module::Runtime)
+perl(Package::Stash)
+perl(Sub::Exporter)
+perl(Sub::Identify)
+perl(Test::Deep)
+perl(Test::Needs)
+perl(Test::Warnings)
+perl(namespace::clean)
