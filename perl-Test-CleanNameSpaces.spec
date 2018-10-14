@@ -4,12 +4,13 @@
 #
 Name     : perl-Test-CleanNameSpaces
 Version  : 0.23
-Release  : 1
+Release  : 2
 URL      : https://cpan.metacpan.org/authors/id/E/ET/ETHER/Test-CleanNamespaces-0.23.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/E/ET/ETHER/Test-CleanNamespaces-0.23.tar.gz
 Summary  : 'Check for uncleaned imports'
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
+Requires: perl-Test-CleanNameSpaces-data = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : perl(File::pushd)
 BuildRequires : perl(Module::Runtime)
@@ -26,21 +27,22 @@ This archive contains the distribution Test-CleanNamespaces,
 version 0.23:
 Check for uncleaned imports
 
+%package data
+Summary: data components for the perl-Test-CleanNameSpaces package.
+Group: Data
+
+%description data
+data components for the perl-Test-CleanNameSpaces package.
+
+
 %package dev
 Summary: dev components for the perl-Test-CleanNameSpaces package.
 Group: Development
-Provides: perl-Test-CleanNameSpaces-devel
+Requires: perl-Test-CleanNameSpaces-data = %{version}-%{release}
+Provides: perl-Test-CleanNameSpaces-devel = %{version}-%{release}
 
 %description dev
 dev components for the perl-Test-CleanNameSpaces package.
-
-
-%package doc
-Summary: doc components for the perl-Test-CleanNameSpaces package.
-Group: Documentation
-
-%description doc
-doc components for the perl-Test-CleanNameSpaces package.
 
 
 %prep
@@ -61,12 +63,12 @@ fi
 
 %install
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/perl-Test-CleanNameSpaces
-cp LICENCE %{buildroot}/usr/share/doc/perl-Test-CleanNameSpaces/LICENCE
+mkdir -p %{buildroot}/usr/share/package-licenses/perl-Test-CleanNameSpaces
+cp LICENCE %{buildroot}/usr/share/package-licenses/perl-Test-CleanNameSpaces/LICENCE
 if test -f Makefile.PL; then
-make pure_install PERL_INSTALL_ROOT=%{buildroot}
+make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
-./Build install --installdirs=site --destdir=%{buildroot}
+./Build install --installdirs=vendor --destdir=%{buildroot}
 fi
 find %{buildroot} -type f -name .packlist -exec rm -f {} ';'
 find %{buildroot} -depth -type d -exec rmdir {} 2>/dev/null ';'
@@ -75,12 +77,12 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.26.1/Test/CleanNamespaces.pm
+/usr/lib/perl5/vendor_perl/5.26.1/Test/CleanNamespaces.pm
+
+%files data
+%defattr(-,root,root,-)
+/usr/share/package-licenses/perl-Test-CleanNameSpaces/LICENCE
 
 %files dev
 %defattr(-,root,root,-)
 /usr/share/man/man3/Test::CleanNamespaces.3
-
-%files doc
-%defattr(0644,root,root,0755)
-%doc /usr/share/doc/perl\-Test\-CleanNameSpaces/*
