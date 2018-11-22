@@ -4,7 +4,7 @@
 #
 Name     : perl-Test-CleanNamespaces
 Version  : 0.23
-Release  : 3
+Release  : 4
 URL      : https://cpan.metacpan.org/authors/id/E/ET/ETHER/Test-CleanNamespaces-0.23.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/E/ET/ETHER/Test-CleanNamespaces-0.23.tar.gz
 Summary  : 'Check for uncleaned imports'
@@ -76,7 +76,7 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.26.1/Test/CleanNamespaces.pm
+/usr/lib/perl5/vendor_perl/5.28.0/Test/CleanNamespaces.pm
 
 %files dev
 %defattr(-,root,root,-)
