@@ -4,7 +4,7 @@
 #
 Name     : perl-Test-CleanNamespaces
 Version  : 0.23
-Release  : 11
+Release  : 12
 URL      : https://cpan.metacpan.org/authors/id/E/ET/ETHER/Test-CleanNamespaces-0.23.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/E/ET/ETHER/Test-CleanNamespaces-0.23.tar.gz
 Summary  : 'Check for uncleaned imports'
