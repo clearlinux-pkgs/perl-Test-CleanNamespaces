@@ -4,10 +4,10 @@
 #
 Name     : perl-Test-CleanNamespaces
 Version  : 0.24
-Release  : 15
+Release  : 16
 URL      : https://cpan.metacpan.org/authors/id/E/ET/ETHER/Test-CleanNamespaces-0.24.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/E/ET/ETHER/Test-CleanNamespaces-0.24.tar.gz
-Summary  : 'Check for uncleaned imports'
+Summary  : Check for uncleaned imports
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
 Requires: perl-Test-CleanNamespaces-license = %{version}-%{release}
@@ -17,8 +17,11 @@ BuildRequires : perl(Module::Runtime)
 BuildRequires : perl(Package::Stash)
 BuildRequires : perl(Sub::Exporter)
 BuildRequires : perl(Sub::Identify)
+BuildRequires : perl(Test::Builder)
 BuildRequires : perl(Test::Deep)
+BuildRequires : perl(Test::More)
 BuildRequires : perl(Test::Needs)
+BuildRequires : perl(Test::Tester)
 BuildRequires : perl(Test::Warnings)
 BuildRequires : perl(namespace::clean)
 
@@ -31,6 +34,7 @@ Check for uncleaned imports
 Summary: dev components for the perl-Test-CleanNamespaces package.
 Group: Development
 Provides: perl-Test-CleanNamespaces-devel = %{version}-%{release}
+Requires: perl-Test-CleanNamespaces = %{version}-%{release}
 
 %description dev
 dev components for the perl-Test-CleanNamespaces package.
@@ -76,7 +80,7 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.1/Test/CleanNamespaces.pm
+/usr/lib/perl5/vendor_perl/5.28.2/Test/CleanNamespaces.pm
 
 %files dev
 %defattr(-,root,root,-)
